@@ -55,6 +55,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.SurfaceTexture;
+import android.graphics.drawable.ColorDrawable;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
 import android.hardware.Camera.PreviewCallback;
@@ -174,6 +175,8 @@ public final class ScanActivity extends AbstractWalletActivity
                 // Using alpha rather than visibility because 'invisible' will cause the surface view to never
                 // start up, so the animation will never start.
                 contentView.setAlpha(0);
+                getWindow()
+                        .setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
                 OnFirstPreDraw.listen(contentView, new OnFirstPreDraw.Callback() {
                     @Override
                     public boolean onFirstPreDraw() {
